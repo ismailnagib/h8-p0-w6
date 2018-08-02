@@ -24,8 +24,7 @@ function jumlahBakteri(N, B, i) {
 	if (i === 1) {
 		return 1;
 	} else {
-		// console.log(Math.pow(N, i-1) - Math.pow(N, i-2) + Math.pow((B*(N-1)-1), i-2) + B);
-		return Math.pow(N, i-1) - Math.pow(N, i-2) + Math.pow((B*(N-1)-1), i-2) + B + jumlahBakteri(N, B, i-1);
+		return (N * jumlahBakteri(N, B, i-1)) + B;
 	}
 }
 
