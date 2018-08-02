@@ -44,7 +44,7 @@ function formatUang(number) {
       arr.unshift(".");
     }
   }
-  return "Rp" + arr.join("") + ", 00";
+  return "Rp" + arr.join("") + ",00";
 }
 
 console.log(formatUang(7500)); // Rp7.500,00
