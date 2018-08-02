@@ -21,11 +21,15 @@ Output: jumlah bakteri pada hari ke-i
 */
 
 function jumlahBakteri(N, B, i) {
-	// start code here
-
+	if (i === 1) {
+		return 1;
+	} else {
+		// console.log(Math.pow(N, i-1) - Math.pow(N, i-2) + Math.pow((B*(N-1)-1), i-2) + B);
+		return Math.pow(N, i-1) - Math.pow(N, i-2) + Math.pow((B*(N-1)-1), i-2) + B + jumlahBakteri(N, B, i-1);
+	}
 }
 
-console.log(jumlahBakteri(3, 4, 1));	// 1
+console.log(jumlahBakteri(3, 4, 1));  // 1
 console.log(jumlahBakteri(1, 3, 5));  // 13
 console.log(jumlahBakteri(5, 2, 3));  // 37
 console.log(jumlahBakteri(5, 0, 5));  // 625
