@@ -24,11 +24,13 @@ output: Rp2.000,00
   // STORE 'number' with any number
   // STORE 'string' with STRINGIFIED 'number'
   // STORE 'arr' with empty array
+  // STORE 'reduction' with value EQUALS 3
   // STORE 'i' with LENGTH OF 'string' MINUS 1
   // WHILE 'i' IS GREATER THAN OR EQUALS 0
   //   UNSHIFT INDEX 'i' OF 'string' to 'arr'
-  //   IF 'i' MODULUS 3 EQUALS 1 THEN
+  //   IF 'i' NOT EQUALS 0 AND 'i' EQUALS LENGTH OF 'string' MINUS 'reduction' THEN
   //     UNSHIFT "." to 'arr'
+  //     ADD 'reduction' by 3
   //   END IF
   // END LOOP
   // RETURN "Rp" PLUS JOINED 'arr' PLUS ", 00"
@@ -38,10 +40,12 @@ output: Rp2.000,00
 function formatUang(number) {
   var string = String(number);
   var arr = [];
+  var reduction = 3;
   for (var i = string.length - 1; i >= 0; i--) {
     arr.unshift(string[i]);
-    if (i % 3 === 1) {
+    if (i !== 0 && i === string.length - reduction) {
       arr.unshift(".");
+      reduction += 3;
     }
   }
   return "Rp" + arr.join("") + ",00";
